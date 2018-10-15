@@ -1,0 +1,27 @@
+Input: ["flower","flow","flight"]
+Output: "fl"
+
+Input: ["dog","racecar","car"]
+Output: ""
+Explanation: There is no common prefix among the input strings. 
+
+
+
+
+
+
+ def longestCommonPrefix(self, strs):
+        answer = ""
+        if len(strs) == 0:
+            return answer
+        length = len(min(strs))
+        if length == 0:
+            return answer
+        
+        for i in range(0, length):
+            temp = strs[0][i]       #将最短字符串存到temp中
+            for string in strs:
+                if temp != string[i]:
+                    return answer
+            answer = answer + temp
+        return answer
