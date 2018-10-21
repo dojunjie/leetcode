@@ -11,7 +11,7 @@ class Solution:
         :type nums: List[int]
         :rtype: int
         """
-		#用列表会导致时间超时     ？？？
+		#用列表会导致时间超时     ？？？n
         retList = []
         for i in nums:
             if i in retList:

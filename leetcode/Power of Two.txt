@@ -1,0 +1,54 @@
+Given an integer, write a function to determine if it is a power of two.
+
+Example 1:
+
+Input: 1
+Output: true 
+Explanation: 20 = 1
+Example 2:
+
+Input: 16
+Output: true
+Explanation: 24 = 16
+Example 3:
+
+Input: 218
+Output: false
+
+
+#笨办法
+class Solution:
+    def isPowerOfTwo(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        if n <= 0:
+            return False
+        
+        while(n%2==0):
+            n = n//2
+        if n == 1:
+            return True
+        else:
+            return False
+			
+			
+			
+#那么我们来观察下2的次方数的二进制写法的特点：
+
+1     2       4         8         16 　　....
+
+1     10      100      1000      10000　....
+
+那么我们很容易看出来2的次方数都只有一个1，剩下的都是0，所以我们的解题思路就有了，
+我们只要每次判断最低位是否为1，然后向右移位，最后统计1的个数即可判断是否是2的次方数，
+
+2的幂表示只有一位n为'1'，所以使用技巧n＆（n-1）== 0来判断是否是这种情况
+class Solution {
+public:
+    bool isPowerOfTwo(int n) {
+        if(n<=0) return false;
+        return !(n&(n-1));
+    }
+};

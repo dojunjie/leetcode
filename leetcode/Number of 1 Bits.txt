@@ -1,0 +1,27 @@
+
+Write a function that takes an unsigned integer and returns the number of '1' bits it has (also known as the Hamming weight).
+
+Example 1:
+
+Input: 11
+Output: 3
+Explanation: Integer 11 has binary representation 00000000000000000000000000001011
+
+
+
+#hammingWeight(汉明权重算法）
+
+#.使用位操作取消1每轮中的a
+
+想想二进制数n = XXXXXX1000，n - 1 is XXXXXX0111。n & (n - 1)将XXXXXX0000是取消最后一个1
+
+def hammingWeight(self, n):
+    """
+    :type n: int
+    :rtype: int
+    """
+    c = 0
+    while n:
+        n &= n - 1
+        c += 1
+    return c
