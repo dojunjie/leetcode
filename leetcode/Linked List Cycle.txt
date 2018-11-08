@@ -1,0 +1,30 @@
+Given a linked list, determine if it has a cycle in it.
+# 判断一个列表是否是循环列表
+
+Follow up:
+Can you solve it without using extra space?
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def hasCycle(self, head):
+        """
+        :type head: ListNode
+        :rtype: bool
+        """
+        if not head:
+            return False
+			
+        # Walker走一步，runner走两步，当Walker=runner时证明是环
+		
+        walker,runner = head,head
+        while runner.next and runner.next.next:
+            walker = walker.next
+            runner = runner.next.next
+            if walker == runner:
+                return True
+        return False

@@ -21,4 +21,4 @@ X市开了一家新电影院，很多人都想去这家电影院。电影院还�
 +---------+-----------+--------------+-----------+
 
 
-SELECT * FROM cinema WHERE (id % 2 = 1) AND (description <> 'boring') ORDER BY rating DESC
+SELECT * FROM cinema WHERE (id % 2 = 1) AND (description <> 'boring') ORDER BY rating DESC;
